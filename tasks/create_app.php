@@ -22,6 +22,7 @@ class create_app {
         $this->controllers_dir = $this->app_dir . DIRECTORY_SEPARATOR . 'controllers';
         $this->models_dir = $this->app_dir . DIRECTORY_SEPARATOR . 'models';
         $this->views_dir = $this->app_dir . DIRECTORY_SEPARATOR . 'views';
+        $this->data_dir = $this->app_dir . DIRECTORY_SEPARATOR . 'data';
 
         $this->createDirs();
         $this->renderTemplate('index', $this->web_dir . DIRECTORY_SEPARATOR . $this->app_name . '.php');
@@ -31,6 +32,7 @@ class create_app {
         $this->renderTemplate('factories', $this->config_dir . DIRECTORY_SEPARATOR . 'factories.php');
         $this->renderTemplate('paths', $this->config_dir . DIRECTORY_SEPARATOR . 'paths.php');
         $this->renderTemplate('routes', $this->config_dir . DIRECTORY_SEPARATOR . 'routes.php');
+        $this->renderTemplate('schema', $this->data_dir . DIRECTORY_SEPARATOR . $this->app_name . '_schema.php');
     }
 
     private function createDirs() {
@@ -40,6 +42,7 @@ class create_app {
         mkdir($this->controllers_dir, 0775, true);
         mkdir($this->models_dir, 0775, true);
         mkdir($this->views_dir, 0775, true);
+        mkdir($this->data_dir, 0775, true);
     }
     
     public function renderTemplate($template_name, $destination) {
