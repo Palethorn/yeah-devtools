@@ -1,0 +1,9 @@
+[?php
+
+class <?php echo ucfirst($this->model_name); ?>Model extends \Yeah\Fw\Db\PdoModel {
+    protected $table = <?php echo $this->model_name; ?>s;
+
+    <?php foreach($this->properties as $property) { ?>
+    private $<?php echo $property; ?> = null;
+   <?php } ?>
+}

@@ -1,0 +1,23 @@
+[?php
+ 
+/*
+ * Allow CORS
+ */
+header("Access-Control-Allow-Origin: *");
+
+ /*
+ * Define shorter directory separator constant
+ */
+if(!defined('DS')) {
+    define('DS', DIRECTORY_SEPARATOR);
+}
+
+/*
+ * Set app name
+ */
+$app_name = '<?php echo $this->app_name; ?>';
+
+/*
+ * Init application
+ */
+require_once '..' . DS . '<?php echo $this->app_name; ?>_bootstrap.php';

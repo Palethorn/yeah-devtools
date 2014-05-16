@@ -1,0 +1,24 @@
+[?php
+
+return array(
+    'logger' => array(
+        'class' => '\Yeah\Fw\Logger\NullLogger',
+        'log_path' => 'logfile.log',
+        'log_level' => \Yeah\Fw\Logger\LogLevel::DEBUG
+    ),
+    'session_handler' => array(
+        'class' => '\Yeah\Fw\Session\DatabaseSessionHandler',
+    ),
+    'request' => array(
+        'class' => '\Yeah\Fw\Http\Request',
+    ),
+    'response' => array(
+        'class' => '\Yeah\Fw\Http\Response',
+    ),
+    'router' => array(
+        'class' => '\Yeah\Fw\Application\Router',
+    ),
+    'auth' => array(
+        'class' => '\Yeah\Fw\Aaa\DatabaseAuth'
+    )
+);

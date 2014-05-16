@@ -1,0 +1,14 @@
+[?php
+
+/*
+ * Application specific configuration
+ */
+$options = array();
+$options['app_name'] = '<?php echo $this->app_name; ?>';
+$options['app_dir'] = dirname(__FILE__) . DIRECTORY_SEPARATOR . '..';
+$options['database'] = require_once 'database.php';
+$options['paths'] = require_once 'paths.php';
+$options['log_level'] = \Yeah\Fw\Logger\LogLevel::DEBUG;
+$options['factories'] = require_once 'factories.php';
+require_once 'routes.php';
+return $options;
