@@ -4,7 +4,7 @@
 */
 $dir = dirname(__FILE__);
 return array(
-    'adapter' => '\Yeah\Fw\Db\PdoAdapter',
+    'adapter' => '\Yeah\Fw\Db\NullAdapter',
     'dsn' => 'mysql:host=localhost;dbname=<?php echo $this->app_name; ?>;charset=utf8',
     'db_user' => 'root',
     'db_password' => '',
