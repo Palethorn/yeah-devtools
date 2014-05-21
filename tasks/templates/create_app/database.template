@@ -1,12 +1,15 @@
 [?php
 /*
- * Application database config
- */
+* Application database config
+*/
 $dir = dirname(__FILE__);
 return array(
+    'adapter' => '\Yeah\Fw\Db\PdoAdapter',
     'dsn' => 'mysql:host=localhost;dbname=<?php echo $this->app_name; ?>;charset=utf8',
     'db_user' => 'root',
     'db_password' => '',
     'database' => '<?php echo $this->app_name; ?>',
+    'host' => 'localhost',
+    'charset' => 'utf8',
     'db_schema_path' => $dir . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . '<?php echo $this->app_name; ?>_schema.php'
 );
