@@ -1,0 +1,11 @@
+[?php
+
+class <?php echo $this->migration_name ?> {
+    public function up() {
+
+    }
+
+    public function down() {
+
+    }
+}
