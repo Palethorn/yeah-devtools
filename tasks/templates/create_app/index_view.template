@@ -1,0 +1,6 @@
+<h1>
+    Welcome to Yeah! Framework
+</h1>
+<h3>
+You have successfully created application "[?php echo $this->app_name ?]"!
+</h3>

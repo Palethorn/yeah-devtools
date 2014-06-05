@@ -1,0 +1,9 @@
+[?php
+
+use Yeah\Fw\Application\Router;
+
+Router::add('/', array(
+    'controller' => 'home',
+    'action' => 'index',
+    'secure' => false
+));

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            h1, h3 {
+                width: 100%;
+                color: #da5c00;
+                margin: 20px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+       [?php echo $this->content; ?]
+    </body>
+</html>
