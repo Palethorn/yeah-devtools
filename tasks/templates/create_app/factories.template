@@ -19,6 +19,6 @@ return array(
         'class' => '\Yeah\Fw\Application\Router',
     ),
     'auth' => array(
-        'class' => '\Yeah\Fw\Aaa\NullAuth'
+        'class' => '\Yeah\Fw\Auth\NullAuth'
     )
 );
