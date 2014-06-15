@@ -1,6 +1,6 @@
 [?php
 
-use Yeah\Fw\Application\Router;
+use Yeah\Fw\Routing\Router;
 
 Router::add('/', array(
     'controller' => 'home',
