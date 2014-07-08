@@ -85,6 +85,9 @@ class migrations {
 
     public function create() {
         $this->migration_name = '_' . date('YmdHis');
+        if(!is_dir($this->migrations_dir)) {
+            mkdir($this->migrations_dir, 0777, true);
+        }
         $this->renderTemplate('migration', $this->migrations_dir .
                 DIRECTORY_SEPARATOR . $this->migration_name . '.php');
         echo "Created " . $this->migration_name . PHP_EOL;
