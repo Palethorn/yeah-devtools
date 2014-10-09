@@ -3,6 +3,6 @@
     "description": "Development command line interface tools for Yeah! framework",
     "keywords": ["framework", "PHP", "yeah", "devtools"],
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=5.3.0" 
     }
 }
