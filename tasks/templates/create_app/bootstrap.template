@@ -6,7 +6,7 @@
 error_reporting(E_ALL);
 
 require_once 'lib' . DS . 'Yeah' . DS . 'Fw' . DS . 'Application' . DS . 'App.php';
-$app = \Yeah\Fw\Application\App::getInstance(dirname(__FILE__));
+$app = new \Yeah\Fw\Application\App('<?php echo $this->app_name; ?>');
 
 $app->routeGet('/', function() {
    echo "You have successfully created Yeah! framework application";
