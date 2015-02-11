@@ -1,7 +1,7 @@
 [?php
 
 class HomeController extends \Yeah\Fw\Mvc\Controller {
-    public function index_action($request) {
+    public function index($request) {
         $this->getView()->setTemplate('index')->withLayout('default')->with('app_name', '<?php echo $this->app_name; ?>');
     }
 }

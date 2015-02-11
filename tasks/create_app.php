@@ -15,7 +15,11 @@ class create_app {
 
     public function execute($params) {
         $work_dir = getcwd() . DIRECTORY_SEPARATOR;
+        if(!isset($params[1])) {
+            throw new Exception('No application name provided', 0, null);
+        }
         $this->app_name = $params[1];
+        
         $this->app_dir = $work_dir . $this->app_name;
         $this->web_dir = $work_dir . 'web';
         $this->config_dir = $this->app_dir . DIRECTORY_SEPARATOR . 'config';
@@ -28,10 +32,6 @@ class create_app {
         $this->createDirs();
         $this->renderTemplate('index', $this->web_dir . DIRECTORY_SEPARATOR . $this->app_name . '.php');
         $this->renderTemplate('bootstrap', $work_dir . DIRECTORY_SEPARATOR . $this->app_name . '_bootstrap.php');
-        $this->renderTemplate('AppConfiguration', $this->config_dir . DIRECTORY_SEPARATOR . 'AppConfiguration.php');
-        $this->renderTemplate('database', $this->config_dir . DIRECTORY_SEPARATOR . 'database.php');
-        $this->renderTemplate('factories', $this->config_dir . DIRECTORY_SEPARATOR . 'factories.php');
-        $this->renderTemplate('paths', $this->config_dir . DIRECTORY_SEPARATOR . 'paths.php');
         $this->renderTemplate('routes', $this->config_dir . DIRECTORY_SEPARATOR . 'routes.php');
         $this->renderTemplate('schema', $this->data_dir . DIRECTORY_SEPARATOR . $this->app_name . '_schema.php');
         $this->renderTemplate('HomeController', $this->controllers_dir . DIRECTORY_SEPARATOR . 'HomeController.php');
@@ -79,5 +79,4 @@ class create_app {
         fwrite($fp, $rendered);
         fclose($fp);
     }
-
 }

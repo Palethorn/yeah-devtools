@@ -1,47 +1,15 @@
 [?php
 
-use Yeah\Fw\Application as Application;
-
 /*
  * Debug mode
  */
 error_reporting(E_ALL);
-$time = microtime(true);
 
-/*
- * Path where lib resides
- */
-$include_path = dirname(__FILE__) . '/lib';
+require_once 'lib' . DS . 'Yeah' . DS . 'Fw' . DS . 'Application' . DS . 'App.php';
+$app = \Yeah\Fw\Application\App::getInstance(dirname(__FILE__));
 
-/**
- * Base paths
- */
-$base_dir = dirname(__FILE__);
-$base_dir_rw = str_replace('-ro', '', $base_dir);
-$paths = array(
-    'app_dir' => $base_dir . DS . $app_name,
-    'lib' => $base_dir . DS . 'lib',
-    'web' => $base_dir . DS . 'web',
-    'cache_dir ' => $base_dir_rw . DS . 'cache',
-    'log_dir' => $base_dir_rw . DS . 'log',
-    'uploads' => $base_dir_rw . DS . 'web' . DS . 'uploads',
-    'data' => $base_dir_rw . DS . 'data',
-);
-$paths['base_dir'] = $base_dir;
-$paths['base_dir_rw'] = $base_dir_rw;
+$app->routeGet('/', function() {
+   echo "You have successfully created Yeah! framework application";
+});
 
-// Get autoloader
-require_once $include_path . DS . 'Yeah' . DS . 'Fw' . DS . 'Application' . DS . 'Autoloader.php';
-$autoloader = new Application\Autoloader();
-$autoloader->setIncludePath($include_path);
-$autoloader->register();
-
-$error_handler = new \Yeah\Fw\Toolbox\ErrorHandler();
-
-$app = Application\App::getInstance(array(
-    'paths' => $paths,
-    'app_name' => $app_name
-        ));
 $app->execute();
-
-Application\App::getInstance()->getLogger()->info(microtime(true) - $time);
