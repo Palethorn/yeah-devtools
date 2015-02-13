@@ -42,7 +42,7 @@ class create_app {
     }
 
     public function cloneFramework() {
-        $command = 'git clone https://palethorn@bitbucket.org/palethorn/yeah.git lib';
+        $command = 'git clone https://bitbucket.org/palethorn/yeah.git lib';
         $output = array();
         $return_var = 0;
         exec($command, $output, $return_var);
