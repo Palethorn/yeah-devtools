@@ -19,7 +19,7 @@ class create_app {
             throw new Exception('No application name provided', 0, null);
         }
         $this->app_name = $params[1];
-        
+
         $this->app_dir = $work_dir . $this->app_name;
         $this->web_dir = $work_dir . 'web';
         $this->config_dir = $this->app_dir . DIRECTORY_SEPARATOR . 'config';
@@ -29,6 +29,8 @@ class create_app {
         $this->data_dir = $this->app_dir . DIRECTORY_SEPARATOR . 'data';
         $this->layouts_dir = $this->views_dir . DIRECTORY_SEPARATOR . 'layouts';
 
+        $this->cloneFramework();
+
         $this->createDirs();
         $this->renderTemplate('index', $this->web_dir . DIRECTORY_SEPARATOR . $this->app_name . '.php');
         $this->renderTemplate('bootstrap', $work_dir . DIRECTORY_SEPARATOR . $this->app_name . '_bootstrap.php');
@@ -37,6 +39,16 @@ class create_app {
         $this->renderTemplate('HomeController', $this->controllers_dir . DIRECTORY_SEPARATOR . 'HomeController.php');
         $this->renderTemplate('index_view', $this->views_dir . DIRECTORY_SEPARATOR . 'index.php');
         $this->renderTemplate('default_layout', $this->layouts_dir . DIRECTORY_SEPARATOR . 'default.php');
+    }
+
+    public function cloneFramework() {
+        $command = 'git clone https://palethorn@bitbucket.org/palethorn/yeah.git lib';
+        $output = array();
+        $return_var = 0;
+        exec($command, $output, $return_var);
+        if($return_var != 0) {
+            throw new Exception('Could not clone repository', $return_var, null);
+        }
     }
 
     private function createDirs() {
@@ -79,4 +91,5 @@ class create_app {
         fwrite($fp, $rendered);
         fclose($fp);
     }
+
 }

@@ -1,4 +1,5 @@
 <?php
+define('DS', DIRECTORY_SEPARATOR);
 use Yeah\Fw\Application as Application;
 
 if($argc == 1) {
@@ -22,13 +23,29 @@ if($argc == 1) {
     exit(0);
 }
 $root = dirname(__FILE__);
+
 $task = $argv[1];
+$method = 'execute';
+$script_task = explode(':', $argv[1]);
+
+if(count($script_task) == 2) {
+    $task = $script_task[0];
+    $method = $script_task[1];
+}
+
 $params = array_slice($argv, 1);
 $task_script = $root . DIRECTORY_SEPARATOR . 'tasks' . DIRECTORY_SEPARATOR . $task . '.php';
+
 if(!file_exists($task_script)) {
     echo "Task not found." . PHP_EOL;
     return 1;
 }
+
 require_once $task_script;
 $obj = new $task();
-return $obj->execute($params);
+try {
+return $obj->$method($params);
+} catch (Exception $e) {
+    echo $e->getMessage() . PHP_EOL;
+    return 1;
+}
