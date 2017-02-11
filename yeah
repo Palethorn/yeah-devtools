@@ -1,4 +1,13 @@
 <?php
+
+if(file_exists('..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'autoload.php')) {
+    require_once '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'autoload.php';
+}
+
+if(file_exists('vendor' . DIRECTORY_SEPARATOR . 'autoload.php')) {
+    require_once 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+}
+
 define('DS', DIRECTORY_SEPARATOR);
 use Yeah\Fw\Application as Application;
 
@@ -6,13 +15,13 @@ if($argc == 1) {
     echo PHP_EOL;
     echo '=============================' . PHP_EOL;
     echo PHP_EOL;
-    echo ":::   ::: ::::::::::     :::     :::    ::: ::: 
-:+:   :+: :+:          :+: :+:   :+:    :+: :+: 
- +:+ +:+  +:+         +:+   +:+  +:+    +:+ +:+ 
-  +#++:   +#++:++#   +#++:++#++: +#++:++#++ +#+ 
-   +#+    +#+        +#+     +#+ +#+    +#+ +#+ 
-   #+#    #+#        #+#     #+# #+#    #+#     
-   ###    ########## ###     ### ###    ### ### 
+    echo ":::   ::: ::::::::::     :::     :::    ::: :::
+:+:   :+: :+:          :+: :+:   :+:    :+: :+:
+ +:+ +:+  +:+         +:+   +:+  +:+    +:+ +:+
+  +#++:   +#++:++#   +#++:++#++: +#++:++#++ +#+
+   +#+    +#+        +#+     +#+ +#+    +#+ +#+
+   #+#    #+#        #+#     #+# #+#    #+#
+   ###    ########## ###     ### ###    ### ###
 ";
     echo PHP_EOL;
     echo '=============================' . PHP_EOL;
